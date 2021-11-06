@@ -1,33 +1,38 @@
 _Bool LoginIsRight(char AdminLogin[], char AdminPassword[]){
-    int i = 0;
     int verificator = 0;
+    char input;
+    char employeeLogin[15] = "admin";
+    char typedLogin[15];
+    char employeePassword[15] = "12345";
+    char typedPassword[15];
 
-//Variáveis de login digitadas pelo usuário
-    char TypedLogin[]="12345";
-    char TypedPassword[]="admin";
-
-    printf("\nDigite o usuário: \n");
-    scanf("%s", &TypedLogin);
-    printf("Digite a senha: \n");
-    scanf("%s", &TypedPassword);
-
-    while(AdminLogin[i]!='\0'&&AdminPassword[i]!='\0'){
-        //Enquanto o login e password admin não chegarem no fim, vai acontecer a verificação de letra por letra das strings
-        if(AdminLogin[i]==TypedLogin[i]&&AdminPassword[i]==TypedPassword[i])  {
+    while (verificator != 1)
+    {
+        printf("\nDigite o usuário: \n");
+        scanf("%s", &typedLogin);
+        printf("Digite a senha: \n");
+        scanf("%s", &typedPassword);
+    
+    if (strcmp(typedLogin, employeeLogin) == 0 && strcmp(typedPassword, employeePassword) == 0)
+        {
+            printf("\n\nLOGADO!\n\n");
             verificator = 1;
-            //Caso todas as letras digitadas sejam iguais as cadastradas, verificador retorna 1.
-        }else {
-            verificator = -1;
-            break;
-            //Caso alguma letra esteja errada, verificador se torna -1 e o looping é quebrado.
+            system("PAUSE");
+            fflush(stdin);
         }
-        i++;
+           
+        else
+        {
+            printf("\n\nDADOS INVALIDOS.\n\n");
+            printf("Deseja tentar novamente? (S/N) \n");
+            scanf("%c", &input);
+            if(input == "N" || input == "n"){
+                system("cls");
+                return 0;
+            }
+            system("PAUSE");
+            system("cls");
+        }             
     }
-
-    if(verificator==1){
         return 1;
-        //Se verificador for 1, ou seja, todas as letras estiverem iguais, então a função retorna true. Caso contrário retorna false.
-    }else {
-        return 0;
-    }
 }
