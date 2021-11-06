@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <curl/curl.h>
 #include<string.h>
-#include "CatchDates.c"
+#include "CatchDate.c"
 #include "LoginIsRight.c"
 
 //Variáveis globais de login, passadas de parâmetro p função LoginIsRight
@@ -43,7 +43,7 @@ if(LoginIsRight(AdminLogin, AdminPassword)){
 };
 
 if(authorized=1){
-  CatchDates(nome, cep);
+  CatchDate(nome, cep);
 };
 
 }

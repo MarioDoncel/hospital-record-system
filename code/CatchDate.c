@@ -2,7 +2,7 @@
 #include <curl/curl.h>
 #include<string.h>
 
-int CatchDates( char nome[], char cep[]){
+int CatchDate( char nome[], char cep[]){
 
             char json[]="/json"; // --> final do link 
             char api_locate[]="https://viacep.com.br/ws/"; //----> link da api
