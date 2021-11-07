@@ -2,7 +2,14 @@
 #include "CatchDate.c"
 
 //Dados do paciente, passados de parâmetro p função CatchDates
-
+char nome[100];
+char CPF[100];
+char cep[100];
+char tel[100];
+char dataNasc[100];
+char email[100];
+char dataDiag[100];
+char comorbidade[100];
 
 void Menu()
 {
