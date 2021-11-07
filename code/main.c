@@ -1,50 +1,33 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <curl/curl.h>
 #include<string.h>
-#include "CatchDate.c"
+
 #include "LoginIsRight.c"
+#include "Menu.c"
 
 //Variáveis globais de login, passadas de parâmetro p função LoginIsRight
-char AdminLogin[]="admin";
-char AdminPassword[]="12345";
+//char AdminLogin[]="admin";
+//char AdminPassword[]="12345";
 
-//Dados do paciente, passados de parâmetro p função CatchDates
-char nome[100];
-char CPF[100];
-char cep[100];
-char tel[100];
-char dataNasc[100];
-char email[100];
-char dataDiag[100];
-char comorbidade[100];
 
-void main() {
+int main() {
 
-int authorized = 0; //Variável de controle de acesso
+  printf("Bem-vindo ao HOSPITAL UNIP!\n");
 
-printf("HELLO WORLD! That's my project!\n");
-printf("*******************************\n");
-printf("\n*****SISTEMA DE CADASTRAMENTO DE PACIENTE COM COVID*****\n");
 
 //Se a função abaixo retornar false, os dados não poderão ser cadastrados. 
-if(LoginIsRight(AdminLogin, AdminPassword)){
+if(LoginIsRight()){
         printf("Login correto!\n");
-        authorized=1;
 
 }else {
-        printf("Usuário ou senha estão errados, digite novamente.");
-        
-        while(!LoginIsRight(AdminLogin, AdminPassword)){
-        printf("Usuário ou senha estão errados, digite novamente.");
-        }
-        printf("Login correto!\n");
-        authorized=1;
+
+         printf("\n\n+++++++++++++++FIM DO PROGRAMA**************\n\n");
+        return 0;
 };
 
-if(authorized=1){
-  CatchDate(nome, cep);
-};
+Menu();
+
+ //CatchDate(nome, cep);
 
 }
 

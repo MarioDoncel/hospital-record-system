@@ -14,7 +14,11 @@ int CatchDate( char nome[], char cep[]){
 printf("\n*****************\n");
 printf("\nPor favor, insira os dados do paciente:\n");
 printf("Nome: \n");
+
 scanf("%s", nome);
+//scanf("%[\n]", nome);
+//scanf("%*[^\n]"); 
+//scanf("%*c");
 printf("CEP: \n");
 scanf("%s", cep);
 
