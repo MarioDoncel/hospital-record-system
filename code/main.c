@@ -18,14 +18,10 @@ int main() {
 //Se a função abaixo retornar false, os dados não poderão ser cadastrados. 
 if(LoginIsRight()){
         printf("Login correto!\n");
-
-}else {
-
-         printf("\n\n+++++++++++++++FIM DO PROGRAMA**************\n\n");
-        return 0;
+        Menu();
 };
 
-Menu();
+printf("\n\n+++++++++++++++FIM DO PROGRAMA**************\n\n");
 
  //CatchDate(nome, cep);
 
