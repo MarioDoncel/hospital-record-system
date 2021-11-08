@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include<string.h>
-
 #include "LoginIsRight.c"
 #include "Menu.c"
 
 //Variáveis globais de login, passadas de parâmetro p função LoginIsRight
 //char AdminLogin[]="admin";
 //char AdminPassword[]="12345";
+
 
 
 int main() {
@@ -18,15 +18,12 @@ int main() {
 //Se a função abaixo retornar false, os dados não poderão ser cadastrados. 
 if(LoginIsRight()){
         printf("Login correto!\n");
+        Menu();
+}
 
-}else {
-
-         printf("\n\n+++++++++++++++FIM DO PROGRAMA**************\n\n");
-        return 0;
-};
-
-Menu();
-
+ printf("\n\n+++++++++++++++FIM DO PROGRAMA**************\n\n");
+ return 0;
+ 
  //CatchDate(nome, cep);
 
 }

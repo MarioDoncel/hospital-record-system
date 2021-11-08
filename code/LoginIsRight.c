@@ -59,20 +59,17 @@ _Bool LoginIsRight(){
                     
                     return 0;
                     }
-            int x = 0; 
-
-            while(x!=1){
+            
+            while(true){
     
                 if(input==110||input==78){  //n e N na tabela ASCII
                // system("cls");
-                    return 0;
                     break;
 
-                }else if(input==115||input==83){
-                    x=1;
+                }else if(input==115||input==83){ //s e S na tabela ASCII
                     break;
                 }else {
-                    x=0;
+                
                     printf("Por favor digite somente S ou N:\n");
                     scanf("%s", &input);
                      }
