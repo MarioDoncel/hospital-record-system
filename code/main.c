@@ -19,11 +19,18 @@ int main() {
 if(LoginIsRight()){
         printf("Login correto!\n");
         Menu();
+<<<<<<< HEAD
 }
 
  printf("\n\n+++++++++++++++FIM DO PROGRAMA**************\n\n");
  return 0;
  
+=======
+};
+
+printf("\n\n+++++++++++++++FIM DO PROGRAMA**************\n\n");
+
+>>>>>>> 4e056023815131b0cd9e979e473effa51cacfc48
  //CatchDate(nome, cep);
 
 }
