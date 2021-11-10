@@ -4,8 +4,8 @@
 
 int TryAgain();
 
-_Bool LoginIsRight(){
-
+_Bool LoginIsRight()
+{
 
     int verificator = 0;
 
@@ -19,9 +19,6 @@ _Bool LoginIsRight(){
 
     char typedPassword[15];
 
-
-
-
     while (verificator != 1)
 
     {
@@ -34,8 +31,8 @@ _Bool LoginIsRight(){
 
         scanf("%s", typedPassword);
 
-
-    if (strcmp(typedLogin, employeeLogin) == 0 && strcmp(typedPassword, employeePassword) == 0){
+        if (strcmp(typedLogin, employeeLogin) == 0 && strcmp(typedPassword, employeePassword) == 0)
+        {
 
             printf("\n\nLOGADO!\n\n");
             verificator = 1;
@@ -43,52 +40,48 @@ _Bool LoginIsRight(){
             //system("PAUSE");
 
             fflush(stdin);
-
-           
-        }else{
+        }
+        else
+        {
 
             printf("\n\nDADOS INVALIDOS.\n\n");
 
-      
             printf("Deseja tentar novamente? (S/N) \n");
 
             scanf("%s", &input);
 
-            if(input==110||input==78){  //n e N na tabela ASCII
-               // system("cls");
-                    
-                    return 0;
-                    }
-            
-            while(true){
-    
-                if(input==110||input==78){  //n e N na tabela ASCII
-               // system("cls");
-                    break;
+            if (input == 110 || input == 78)
+            {   //n e N na tabela ASCII
+                // system("cls");
 
-                }else if(input==115||input==83){ //s e S na tabela ASCII
+                return 0;
+            }
+
+            while (true)
+            {
+
+                if (input == 110 || input == 78)
+                {   //n e N na tabela ASCII
+                    // system("cls");
                     break;
-                }else {
-                
+                }
+                else if (input == 115 || input == 83)
+                { //s e S na tabela ASCII
+                    break;
+                }
+                else
+                {
+
                     printf("Por favor digite somente S ou N:\n");
                     scanf("%s", &input);
-                     }
-
+                }
             }
-           
 
-       
- 
             //system("PAUSE"); --------------------> WINDOWS
 
             //system("cls") ------------------------> WINDOWS
-
-        }             
-
+        }
     }
 
-        return 1;
-
-
-} 
-
+    return 1;
+}

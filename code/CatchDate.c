@@ -5,6 +5,30 @@
 #include "MenuGiveUp.c"
 #include "Register.c"
 
+
+int somethingWrong(){
+    printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
+    printf("CEP: \n");
+    scanf("%s", cep);
+}
+
+int checkFiveAteemps(){
+    if (i == 5)
+        {
+            printf("\n****************************************\n");
+            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
+
+            if (!MenuGiveUp())
+            {
+                return 0;
+            }
+            else
+            {
+                i = 0;
+            }
+        }
+}
+
 int CatchDate(char nome[], 
 char cep[],
 char cpf[],
@@ -34,25 +58,8 @@ char email[])
         A pergunta continuará a se repetir algumas vezes, até a condição ser ativada
         e o usuário escolher sair no MenuGiveUp.
          */
-        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
-        printf("CEP: \n");
-        scanf("%s", cep);
-
-        if (i == 5)
-        {
-            printf("\n****************************************\n");
-            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
-
-            if (!MenuGiveUp())
-            {
-                return 0;
-            }
-            else
-            {
-                i = 0;
-            }
-        }
-
+        somethingWrong()
+        checkFiveAteemps()
         i++;
     }
 
@@ -63,25 +70,8 @@ char email[])
          i = 0;
     while (!JustNumberPlease(cpf, 11))
     {
-        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
-        printf("CPF: \n");
-        scanf("%s", cpf);
-
-        if (i == 5)
-        {
-            printf("\n****************************************\n");
-            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
-
-            if (!MenuGiveUp())
-            {
-                return 0;
-            }
-            else
-            {
-                i = 0;
-            }
-        }
-
+        somethingWrong()
+        checkFiveAteemps()
         i++;
     }
 
@@ -93,25 +83,8 @@ char email[])
     i = 0;
     while (!JustNumberPlease(tel, 11))
     {
-        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
-        printf("Telefone: \n");
-        scanf("%s", tel);
-
-        if (i == 5)
-        {
-            printf("\n****************************************\n");
-            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
-
-            if (!MenuGiveUp())
-            {
-                return 0;
-            }
-            else
-            {
-                i = 0;
-            }
-        }
-
+        somethingWrong()
+        checkFiveAteemps()
         i++;
     }
 
@@ -119,9 +92,9 @@ char email[])
     scanf("%s", email);
 //Ainda falta fazer a validação do arroba
     printf("Por favor, digite em forma numérica o dia, mês e ano de nascimento\n");
-    Data nasc = GetAge();
+    Data nasc = GetDate();
     printf("Por favor, digite em forma numérica o dia, mês e ano do diagnóstico\n");
-    Data diag = GetAge();
+    Data diag = GetDate();
 
     Register(cep, nome, cpf, tel, email, nasc, diag);
 }

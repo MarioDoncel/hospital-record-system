@@ -10,7 +10,7 @@ typedef struct {
     char ano[6];
 } Data ;
 
-Data GetAge () {
+Data GetDate () {
     Data Data; 
 
     //printf("Por favor, digite em forma numérica o dia, mês e ano de nascimento\n");
