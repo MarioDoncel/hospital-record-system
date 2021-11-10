@@ -4,6 +4,7 @@
 #include "LoginIsRight.c"
 #include "Menu.c"
 
+
 //Variáveis globais de login, passadas de parâmetro p função LoginIsRight
 //char AdminLogin[]="admin";
 //char AdminPassword[]="12345";

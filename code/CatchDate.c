@@ -1,75 +1,127 @@
 #include <stdio.h>
 #include <curl/curl.h>
-#include<string.h>
+#include <string.h>
+#include "JustNumberPlease.c"
+#include "MenuGiveUp.c"
+#include "Register.c"
 
-int CatchDate( char nome[], char cep[]){
+int CatchDate(char nome[], 
+char cep[],
+char cpf[],
+char tel[],
+char email[])
 
-            char json[]="/json"; // --> final do link 
-            char api_locate[]="https://viacep.com.br/ws/"; //----> link da api
-            char complete_link[100]; // ---> link completo
-            //Variáveis de contagem no looping ........... ahh, como seria bom um .map aqui :p
-            int i = 0;
-            int j = 0;
+{
 
-printf("\n*****************\n");
-printf("\nPor favor, insira os dados do paciente:\n");
-printf("Nome: \n");
+    int i = 0;
+    int j = 0;
 
-scanf("%s", nome);
-//scanf("%[\n]", nome);
-//scanf("%*[^\n]"); 
-//scanf("%*c");
-printf("CEP: \n");
-scanf("%s", cep);
+    printf("\n*****************\n");
+    printf("\nPor favor, insira os dados do paciente:\n");
+    printf("Nome: \n");
 
-//Junta o CEP com o restante do link (api_locate[] e json[])
-    while(api_locate[i]!='\0'){
-        complete_link[i] = api_locate[i];
+    scanf("%s", nome);
+    //scanf("%[\n]", nome);
+    //scanf("%*[^\n]");
+    //scanf("%*c");
+    printf("CEP: \n");
+    scanf("%s", cep);
+
+    i = 0;
+    while (!JustNumberPlease(cep, 8))
+    {
+        /*Enquanto a JustNumberPlease retornar false,
+        A pergunta continuará a se repetir algumas vezes, até a condição ser ativada
+        e o usuário escolher sair no MenuGiveUp.
+         */
+        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
+        printf("CEP: \n");
+        scanf("%s", cep);
+
+        if (i == 5)
+        {
+            printf("\n****************************************\n");
+            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
+
+            if (!MenuGiveUp())
+            {
+                return 0;
+            }
+            else
+            {
+                i = 0;
+            }
+        }
+
         i++;
-    };
+    }
 
-    while(cep[j]!='\0'){
-        complete_link[i] = cep[j];
+    printf("CPF: \n");
+    scanf("%s", cpf);
+
+
+         i = 0;
+    while (!JustNumberPlease(cpf, 11))
+    {
+        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
+        printf("CPF: \n");
+        scanf("%s", cpf);
+
+        if (i == 5)
+        {
+            printf("\n****************************************\n");
+            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
+
+            if (!MenuGiveUp())
+            {
+                return 0;
+            }
+            else
+            {
+                i = 0;
+            }
+        }
+
         i++;
-        j++;
-    };
-    j=0;
+    }
 
-    while(json[j]!='\0'){
-        complete_link[i] = json[j];
+
+    printf("Telefone com DDD: \n");
+    scanf("%s", tel);
+
+
+    i = 0;
+    while (!JustNumberPlease(tel, 11))
+    {
+        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
+        printf("Telefone: \n");
+        scanf("%s", tel);
+
+        if (i == 5)
+        {
+            printf("\n****************************************\n");
+            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
+
+            if (!MenuGiveUp())
+            {
+                return 0;
+            }
+            else
+            {
+                i = 0;
+            }
+        }
+
         i++;
-        j++;
-    };
-//
+    }
 
+    printf("E-mail: \n");
+    scanf("%s", email);
+//Ainda falta fazer a validação do arroba
+    printf("Por favor, digite em forma numérica o dia, mês e ano de nascimento\n");
+    Data nasc = GetAge();
+    printf("Por favor, digite em forma numérica o dia, mês e ano do diagnóstico\n");
+    Data diag = GetAge();
 
-//Função da libcurl que passa os valores da api pro arquivo .txt
-size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream){
-    size_t written = fwrite(ptr, size, nmemb, stream);
-    return written;
-};
-
-
-    
-    CURL *curl = curl_easy_init(); //inicia o ponteiro referente a lib curl
-    
-    FILE *fp; //Inicializou o ponteiro de arquivo
-    fp = fopen("pacientes/dates.txt", "a"); //Criou o arquivo, ou atualizou, se existente
-    curl_easy_setopt(curl, CURLOPT_URL,complete_link); //--> faz a request http no complete_link
-   // curl_easy_setopt(curl, CURLOPT_FAILONERROR, true); IGNORAR POR ENQUANTO
-
-    //Começa a escrever no arquivo dates.txt
-            fprintf(fp, "\nNOME: %s\n", nome);
-            fprintf(fp, "ENDEREÇO:");
-            curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
-            curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);  //o endereço do packet.json é escrito na variável fp, que corresponde ao endereço de memória do arquivo dates.txt
-            curl_easy_perform(curl);
-            fprintf(fp,"******\n");
-
-    //Encerra a API e a leitura do arquivo    
-    curl_easy_cleanup(curl);
-    fclose(fp);
-   
-
-printf("\nO endereço foi cadastrado: %s\n", complete_link);
+    Register(cep, nome, cpf, tel, email, nasc, diag);
 }

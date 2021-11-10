@@ -7,10 +7,10 @@ char nome[100];
 char cpf[100];
 char cep[100];
 char tel[100];
-char dataNasc[100];
 char email[100];
-char dataDiag[100];
+
 //char comorbidade[100];
+
 
 int Menu()
 {
@@ -31,7 +31,7 @@ int input;
 
     switch(input){
         case 1:
-        CatchDate(nome, cep);
+        CatchDate(nome, cep, cpf, tel, email);
         break;
         case 6:
         return 0;
