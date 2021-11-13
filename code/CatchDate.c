@@ -119,6 +119,7 @@ char email[])
     scanf("%s", email);
 //Ainda falta fazer a validação do arroba
     printf("Por favor, digite em forma numérica o dia, mês e ano de nascimento\n");
+    
     Data nasc = GetAge();
     printf("Por favor, digite em forma numérica o dia, mês e ano do diagnóstico\n");
     Data diag = GetAge();
