@@ -14,7 +14,8 @@ char email[100];
 
 int Menu()
 {
-
+system("clear");
+system("cls");
 
 int input;
 
