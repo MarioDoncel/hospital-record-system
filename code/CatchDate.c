@@ -4,27 +4,24 @@
 #include "MenuGiveUp.c"
 #include "Register.c"
 
+
 int CatchDate(char nome[], 
 char cep[],
 char cpf[],
 char tel[],
-char email[],
-Endereco endereco
+char email[]
 )
 
 {
-
+    char input[1];
+    char comorbidade[4];
+    char comorbidadeDetalhes[100];
     int i = 0;
-    int j = 0;
 
-    printf("\n*****************\n");
     printf("\nPor favor, insira os dados do paciente:\n");
-    printf("Nome: \n");
 
+    printf("Nome: \n");
     scanf("%s", nome);
-    //scanf("%[\n]", nome);
-    //scanf("%*[^\n]");
-    //scanf("%*c");
 
     printf("CPF: \n");
     scanf("%s", cpf);
@@ -86,7 +83,6 @@ Endereco endereco
     }
 
 
-
     printf("E-mail: \n");
     scanf("%s", email);
 
@@ -120,22 +116,33 @@ Endereco endereco
         }
 
         i++;
-    }
+    };
 
-    printf("Rua: \n");
-    scanf("%s", endereco.rua);
-    printf("Bairro: \n");
-    scanf("%s", endereco.bairro);
-    printf("Numero: \n");
-    scanf("%s", endereco.numero);
-    printf("Cidade: \n");
-    scanf("%s", endereco.cidade);
+    
 
 //Ainda falta fazer a validação do arroba
     printf("Por favor, digite em forma numérica o dia, mês e ano de nascimento\n");
     Data nasc = GetAge();
     printf("Por favor, digite em forma numérica o dia, mês e ano do diagnóstico\n");
     Data diag = GetAge();
+    Endereco endereco = GetAddress();
+
+    printf("Possui alguma comorbidade?(S/N) \n");
+    scanf("%c", comorbidade);
+     while(true){
+
+        if(input==110||input==78){  //n e N na tabela ASCII
+            char comorbidade = 'Não';
+            break;
+        }else if(input==115||input==83){ //s e S na tabela ASCII
+            char comorbidade = 'Sim';
+            printf("Comorbidade(s): \n");
+            scanf("%[^\n]", comorbidadeDetalhes);
+            break;
+        }else {
+            printf("Por favor digite somente S ou N:\n");
+            scanf("%s", &input);
+        }
 
     Register(cep, nome, cpf, tel, email, endereco, nasc, diag);
 }

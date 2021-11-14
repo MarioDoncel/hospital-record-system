@@ -4,7 +4,7 @@
 int calculateAge(Data dataNasc, Data dataDiag){
     int age;
     age = dataDiag.ano - dataNasc.ano;
-
+    
     if(dataDiag.mes < dataNasc.mes) {
         return age - 1;} 
 
@@ -14,6 +14,4 @@ int calculateAge(Data dataNasc, Data dataDiag){
         return age-1;
     }
 
-   
-    
 }
