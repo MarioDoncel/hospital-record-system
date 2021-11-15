@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "GetAge.c"
-
+#include "checkRisk.c"
 
 void Register(
     char cep[], 
@@ -11,7 +10,8 @@ void Register(
     char email[],
     Endereco Endereco,
     Data dataNasc,
-    Data dataDiag
+    Data dataDiag,
+    char comorbidade[]
 )
 {
 
@@ -21,19 +21,34 @@ void Register(
    
 
 
-    FILE *fp;                                           
-    fp = fopen("pacientes/dates.txt", "a");         
-    fprintf(fp, "NOME: %s", nome);
-    fprintf(fp, "CPF: %s\n", cpf);
-    fprintf(fp, "TELEFONE: %s\n", tel);
-    fprintf(fp, "ENDEREÇO:\nRUA: %s %s", Endereco.rua, Endereco.numero);
-    fprintf(fp, "Bairro: %s - %s", Endereco.bairro, Endereco.estado);
-    fprintf(fp, "EMAIL: %s", email);
-    fprintf(fp, "DATA DE NASCIMENTO: %s/%s/%s \n", dataNasc.dia, dataNasc.mes, dataNasc.ano);
-    fprintf(fp, "DATA DE DIAGINÓSTICO: %s/%s/%s \n", dataDiag.dia, dataDiag.mes, dataDiag.ano);
-    fclose(fp);
+    FILE *fpaciente;  
+    FILE *fpacienteRisco;                                         
+    fpaciente = fopen("pacientes/dates.txt", "a");   
+    
+    fprintf(fpaciente, "NOME: %s", nome);
+    fprintf(fpaciente, "CPF: %s\n", cpf);
+    fprintf(fpaciente, "TELEFONE: %s\n", tel);
+    fprintf(fpaciente, "ENDEREÇO:\nRUA: %s %s", Endereco.rua, Endereco.numero);
+    fprintf(fpaciente, "Bairro: %s - %s", Endereco.bairro, Endereco.estado);
+    fprintf(fpaciente, "EMAIL: %s", email);
+    fprintf(fpaciente, "DATA DE NASCIMENTO: %s/%s/%s \n", dataNasc.dia, dataNasc.mes, dataNasc.ano);
+    fprintf(fpaciente, "DATA DE DIAGINÓSTICO: %s/%s/%s \n", dataDiag.dia, dataDiag.mes, dataDiag.ano);
+    fprintf(fpaciente, "COMORBIDADES:\n {%s}", comorbidade);
+    fclose(fpaciente);
+
+
+   if(checkRisk(dataNasc, dataDiag)>=65){
+
+       fpacienteRisco = fopen ("pacientes/risk.txt", "a");       
+        fprintf(fpacienteRisco, "PACIENTE GRUPO DE RISCO(maiores que 65 anos):\n %s", nome);
+        fprintf(fpacienteRisco, "CEP %s\n", cep);
+        fprintf(fpacienteRisco, "COMORBIDADES:\n {%s}", comorbidade);
+   fclose(fpacienteRisco);
+   };
 
  
 
-    printf("\nO endereço foi cadastrado.");
+ 
+
+    printf("\nDADOS CADASTRADOS!");
 }

@@ -5,13 +5,14 @@
 #include "MenuGiveUp.c"
 #include "Register.c"
 #include "clearScreen.c"
+#include "CheckComorbity.c"
 
 char nome[100];
 char cpf[100];
 char cep[100];
 char tel[100];
 char email[100];
-
+char comorbidade[100]="Nenhuma";
 int CatchDate()
 
 {
@@ -155,8 +156,13 @@ int CatchDate()
     printf("Por favor, digite em forma numérica o dia, mês e ano do diagnóstico\n");
     Data diag = GetAge();
 
-    
+ 
+   if(CheckComorbity()){
+           
+            printf("Quais?\n");
+            fgets(comorbidade, 100, stdin);
+    }
 
     clearScreen();
-    Register(cep, nome, cpf, tel, email, Endereco, nasc, diag);
+    Register(cep, nome, cpf, tel, email, Endereco, nasc, diag, comorbidade);
 }
