@@ -77,6 +77,8 @@ int CatchDate()
     fgets(Endereco.numero, 20, stdin);
     printf("Bairro: \n");
     fgets(Endereco.bairro, 20, stdin);
+    printf("Cidade: \n");
+    fgets(Endereco.cidade, 20, stdin);
     printf("Estado: \n");
     fgets(Endereco.estado, 20, stdin);
     while (!JustLetterPlease(Endereco.estado)){

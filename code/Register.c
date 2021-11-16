@@ -30,7 +30,7 @@ void Register(
     fprintf(fpaciente, "CPF: %s\n", cpf);
     fprintf(fpaciente, "TELEFONE: %s\n", tel);
     fprintf(fpaciente, "ENDEREÇO:\nRUA: %s %s", Endereco.rua, Endereco.numero);
-    fprintf(fpaciente, "Bairro: %s - %s", Endereco.bairro, Endereco.estado);
+    fprintf(fpaciente, "Bairro: %s - %s/%s", Endereco.bairro, Endereco.cidade, Endereco.estado);
     fprintf(fpaciente, "EMAIL: %s", email);
     fprintf(fpaciente, "DATA DE NASCIMENTO: %s/%s/%s \n", dataNasc.dia, dataNasc.mes, dataNasc.ano);
     fprintf(fpaciente, "DATA DE DIAGINÓSTICO: %s/%s/%s \n", dataDiag.dia, dataDiag.mes, dataDiag.ano);
