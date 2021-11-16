@@ -1,10 +1,6 @@
 #include <stdio.h>
-
 #include <string.h>
-#include "GetAge.c"
-#include "GetAddress.c"
-#include "calculateAge.c"
-
+#include "checkRisk.c"
 
 void Register(
     char cep[], 
@@ -12,53 +8,47 @@ void Register(
     char cpf[],
     char tel[],
     char email[],
-    Endereco endereco,
+    Endereco Endereco,
     Data dataNasc,
     Data dataDiag,
-    char comorbidade[], 
-    char comorbidadeDetalhes[]
+    char comorbidade[]
 )
 {
 
-    FILE *paciente;                                           //Inicializou o ponteiro de arquivo
-    paciente = fopen("pacientes/dates.txt", "a");             //Criou o arquivo, ou atualizou, se existente
-    //Começa a escrever no arquivo dates.txt
-    fprintf(paciente, "\nNOME: %s\n", nome);
-    fprintf(paciente, "CPF: %s\n", cpf);
-    fprintf(paciente, "TELEFONE: %s\n", tel);
-    fprintf(paciente, "EMAIL: %s\n", email);
-    fprintf(paciente, "DATA DE NASCIMENTO: %s/%s/%s \n", dataNasc.dia, dataNasc.mes, dataNasc.ano);
-    fprintf(paciente, "ENDEREÇO:");
-    fprintf(paciente, "Rua %s, %s\n", endereco.rua, endereco.numero);
-    fprintf(paciente, "%s\n", endereco.bairro);
-    fprintf(paciente, "%s/SP\n", endereco.cidade);
-    fprintf(paciente, "%s\n", cep);
-    if(comorbidade == 'Sim'){
-    fprintf(paciente, "Possui as seguintes comorbidades: \n");
-    fprintf(paciente, "%s\n", comorbidadeDetalhes); 
-    } else {
-        fprintf(paciente, "Não possui comorbidades. \n");
-    }
-    fprintf(paciente, "DATA DE DIAGINÓSTICO: %s/%s/%s \n", dataDiag.dia, dataDiag.mes, dataDiag.ano);
+   
+    int i = 0;
+    int j = 0;
+   
 
-    //Encerra a API e a leitura do arquivo
-    fclose(paciente);
 
-    int age = calculateAge(dataNasc, dataDiag);
-
-    if(age>65 && comorbidade == 'Sim'){
-        FILE *pacienteRisco;
-        pacienteRisco = fopen("pacientes/pacientesRisco.txt", "a");             //Criou o arquivo, ou atualizou, se existente
-    //Começa a escrever no arquivo dates.txt
-        fprintf(pacienteRisco, "\nCEP: %s\n", cep);
-        fprintf(pacienteRisco, "IDADE: %s\n", age);
-        fprintf(pacienteRisco, "-------------");
-        fclose(pacienteRisco);
-
-    }
+    FILE *fpaciente;  
+    FILE *fpacienteRisco;                                         
+    fpaciente = fopen("pacientes/dates.txt", "a");   
     
+    fprintf(fpaciente, "NOME: %s", nome);
+    fprintf(fpaciente, "CPF: %s\n", cpf);
+    fprintf(fpaciente, "TELEFONE: %s\n", tel);
+    fprintf(fpaciente, "ENDEREÇO:\nRUA: %s %s", Endereco.rua, Endereco.numero);
+    fprintf(fpaciente, "Bairro: %s - %s", Endereco.bairro, Endereco.estado);
+    fprintf(fpaciente, "EMAIL: %s", email);
+    fprintf(fpaciente, "DATA DE NASCIMENTO: %s/%s/%s \n", dataNasc.dia, dataNasc.mes, dataNasc.ano);
+    fprintf(fpaciente, "DATA DE DIAGINÓSTICO: %s/%s/%s \n", dataDiag.dia, dataDiag.mes, dataDiag.ano);
+    fprintf(fpaciente, "COMORBIDADES:\n {%s}", comorbidade);
+    fclose(fpaciente);
 
-    printf("\nO Paciente foi cadastrado!");
-    getOsClearScreen();
-    Menu();
+
+   if(checkRisk(dataNasc, dataDiag)>=65){
+
+       fpacienteRisco = fopen ("pacientes/risk.txt", "a");       
+        fprintf(fpacienteRisco, "PACIENTE GRUPO DE RISCO(maiores que 65 anos):\n %s", nome);
+        fprintf(fpacienteRisco, "CEP %s\n", cep);
+        fprintf(fpacienteRisco, "COMORBIDADES:\n {%s}", comorbidade);
+   fclose(fpacienteRisco);
+   };
+
+ 
+
+ 
+
+    printf("\nDADOS CADASTRADOS!");
 }

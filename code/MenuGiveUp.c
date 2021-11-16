@@ -12,6 +12,7 @@ int input;
     printf("---------------------------------------------------------------------------\n\n");
     printf("\nEscolha uma opção:");
     scanf("%i", &input);
+    clearBuffer();
     printf("****************************************");
 
 while(true){

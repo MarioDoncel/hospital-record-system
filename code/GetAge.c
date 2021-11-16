@@ -4,6 +4,15 @@
 #include <ctype.h>
 
 
+typedef struct Endereco {
+    char rua[25];
+    char bairro[25];
+    char numero[25];
+    char estado[25];
+
+} Endereco;
+
+
 typedef struct {
     char dia[6];
     char mes[6];

@@ -38,3 +38,19 @@ scanf("%s", cpf);
 
     return 1;
 }
+
+
+_Bool JustLetterPlease(char string[]){
+int i=0;
+    
+    while(isdigit(string[i])||string[i]!='\0'){
+        if(isdigit(string[i])){
+             return 0;
+        }
+       
+        i++;
+    }
+  //  printf("%s", string[i]);
+    return 1;
+
+}

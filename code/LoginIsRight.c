@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include "clearBuffer.c"
+
 //_Bool LoginIsRight(char AdminLogin[], char AdminPassword[]
 
 int TryAgain();
@@ -24,35 +26,34 @@ _Bool LoginIsRight(){
 
     while (verificator != 1)
 
-    {
+    {   
 
         printf("\nDigite o usuário: \n");
 
         scanf("%s", typedLogin);
+        clearBuffer();
+      
 
         printf("Digite a senha: \n");
-
         scanf("%s", typedPassword);
-
+        clearBuffer();
 
     if (strcmp(typedLogin, employeeLogin) == 0 && strcmp(typedPassword, employeePassword) == 0){
 
             printf("\n\nLOGADO!\n\n");
             verificator = 1;
 
-            //system("PAUSE");
+         
 
-            fflush(stdin);
-
+        
            
         }else{
 
             printf("\n\nDADOS INVALIDOS.\n\n");
-
-      
             printf("Deseja tentar novamente? (S/N) \n");
-
-            scanf("%s", &input);
+            input = getchar();
+            clearBuffer();
+            
 
             if(input==110||input==78){  //n e N na tabela ASCII
                // system("cls");
@@ -71,7 +72,9 @@ _Bool LoginIsRight(){
                 }else {
                 
                     printf("Por favor digite somente S ou N:\n");
-                    scanf("%s", &input);
+                    input = getchar();
+                    clearBuffer();
+
                      }
 
             }
