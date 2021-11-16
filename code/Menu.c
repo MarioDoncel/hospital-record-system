@@ -2,14 +2,6 @@
 #include "CatchDate.c"
 
 //Dados do paciente, passados de parâmetro p função CatchDates
-<<<<<<< HEAD
-char nome[100];
-char cpf[100];
-char cep[100];
-char tel[100];
-char email[100];
-=======
->>>>>>> 0b328fdf1440d39eba6294ef61bac6facee333a0
 
 
 //char comorbidade[100];
