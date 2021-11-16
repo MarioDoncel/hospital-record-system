@@ -27,7 +27,7 @@ if(LoginIsRight()){
 }
 
 
- printf("\n\n+++++++++++++++FIM DO PROGRAMA**************\n\n");
+ printf("\n\n+++++++++++++++ FIM DO PROGRAMA +++++++++++++++++++++\n\n");
  return 0;
  
  //CatchDate(nome, cep);

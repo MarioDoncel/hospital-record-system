@@ -13,13 +13,12 @@ int Menu()
 
 int input;
 
-    printf("*******************************\n");
-    printf("\n*****SISTEMA DE CADASTRAMENTO DE PACIENTE COM COVID*****\n");
-    printf("\n********\n");
+    printf("\t\t\t*******************************\n");
+    printf("\n\t***** SISTEMA DE CADASTRAMENTO DE PACIENTE COM COVID *****\n");
 
-    printf("______________________________________________________________________________\n");
-    printf("1-Cadastrar Paciente\n");
-    printf("6-Sair\n");
+    printf("______________________________________________________________________________\n\n");
+    printf("\t\t\t1-Cadastrar Paciente\n");
+    printf("\t\t\t6-Sair\n\n");
     printf("---------------------------------------------------------------------------\n\n");
     printf("\nEscolha uma opção:");
     scanf("%i", &input);

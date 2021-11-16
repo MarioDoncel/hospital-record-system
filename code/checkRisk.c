@@ -5,7 +5,7 @@
 
 #include "GetAge.c"
 
-int checkRisk(Data dataNasc, Data dataDiag){
+_Bool checkRisk(Data dataNasc, Data dataDiag, char comorbidade){
 
     int anoNasc = atoi(dataNasc.ano); 
     int anoDiag = atoi(dataDiag.ano);
@@ -15,18 +15,24 @@ int checkRisk(Data dataNasc, Data dataDiag){
     int diaDiag = atoi(dataDiag.dia);
 
     int age;
-  
 
     age = anoDiag - anoNasc;
+    
+    if(mesDiag < mesNasc) {
+        age = age - 1;
+    } 
+
+    if(mesDiag > mesNasc || diaDiag >= diaNasc){
+        age = age;
+    } else {
+        age = age-1;
+    }
+
+        if(age >=65 && comorbidade != "Nenhuma"){
+        return 1;
+        } else {
+            return 0;
+        };
 
 
-          if(age>=65){
-              if(mesNasc<mesDiag){
-                  if(diaNasc<diaDiag){
-                      age = 64;
-                  }
-              }
-          } 
-
-        return age;
 }
