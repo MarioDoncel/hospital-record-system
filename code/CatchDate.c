@@ -22,18 +22,18 @@ int CatchDate()
     int j = 0;
 
     printf("\n*****************\n");
-    printf("\nPor favor, insira os dados do paciente:\n");
-    printf("Nome: \n");
+    printf("\n\tPor favor, insira os dados do paciente:\n");
+    printf("\tNome: \n");
 
-    fgets(nome, '\n', stdin);
+    fgets(nome, 30, stdin);
     
     while (!JustLetterPlease(nome)){
-        printf("Por favor, digite somente letras.");
-        fgets(nome, 25, stdin);
+        printf("Por favor, digite somente letras.\n");
+        fgets(nome, 30, stdin);
     
     }
     clearBuffer();
-    printf("CEP: \n");
+    printf("\tCEP: \n");
     scanf("%s", cep);
     clearBuffer();
 
@@ -44,8 +44,8 @@ int CatchDate()
         A pergunta continuará a se repetir algumas vezes, até a condição ser ativada
         e o usuário escolher sair no MenuGiveUp.
          */
-        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
-        printf("CEP: \n");
+        printf("\n\tAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
+        printf("\tCEP: \n");
          scanf("%s", cep);
          clearBuffer();
         
@@ -54,7 +54,7 @@ int CatchDate()
         {
             printf("\n****************************************\n");
             clearScreen();
-            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
+            printf("\tMúltiplas tentativas foram detectadas, o que você deseja?");
 
             if (!MenuGiveUp())
             {
@@ -71,23 +71,23 @@ int CatchDate()
 
 
     //fgets(*string, quantidade de caracteres, FILE*), stdin se refere a entrada do teclado, mas fgets pode ser usado p ler um arquivo também.
-    printf("Rua: \n");
+    printf("\tRua: \n");
     fgets(Endereco.rua, 20, stdin);
-    printf("Numero: \n");
+    printf("\tNumero: \n");
     fgets(Endereco.numero, 20, stdin);
-    printf("Bairro: \n");
+    printf("\tBairro: \n");
     fgets(Endereco.bairro, 20, stdin);
-    printf("Cidade: \n");
+    printf("\tCidade: \n");
     fgets(Endereco.cidade, 20, stdin);
-    printf("Estado: \n");
+    printf("\tEstado: \n");
     fgets(Endereco.estado, 20, stdin);
     while (!JustLetterPlease(Endereco.estado)){
-        printf("Por favor, digite somente letras.");
+        printf("\tPor favor, digite somente letras.");
         fgets(Endereco.estado, 25, stdin);
     
     }
 
-    printf("CPF: \n");
+    printf("\tCPF: \n");
     scanf("%s", cpf);
     clearBuffer();
 
@@ -95,15 +95,15 @@ int CatchDate()
          i = 0;
     while (!JustNumberPlease(cpf, 11))
     {
-        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
-        printf("CPF: \n");
+        printf("\n\tAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
+        printf("\tCPF: \n");
     scanf("%s", cpf);
     clearBuffer();
         if (i == 5)
         {
             printf("\n****************************************\n");
             clearScreen();
-            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
+            printf("\tMúltiplas tentativas foram detectadas, o que você deseja?");
 
             if (!MenuGiveUp())
             {
@@ -119,22 +119,22 @@ int CatchDate()
     }
 
 
-    printf("Telefone com DDD: \n");
+    printf("\tTelefone com DDD: \n");
       scanf("%s", tel);
     clearBuffer();
 
     i = 0;
     while (!JustNumberPlease(tel, 11))
     {
-        printf("\nAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
-        printf("Telefone: \n");
+        printf("\n\tAlgo está errado, por favor digite apenas números e fique atento na quantidade...\n");
+        printf("\tTelefone: \n");
          scanf("%s", tel);
          clearBuffer();
 
         if (i == 5)
         {
             printf("\n****************************************\n");
-            printf("Múltiplas tentativas foram detectadas, o que você deseja?");
+            printf("\tMúltiplas tentativas foram detectadas, o que você deseja?");
 
             if (!MenuGiveUp())
             {
@@ -149,19 +149,19 @@ int CatchDate()
         i++;
     }
 
-    printf("E-mail: \n");
+    printf("\tE-mail: \n");
     fgets(email, 25, stdin);
 //Ainda falta fazer a validação do arroba
-    printf("Por favor, digite em forma numérica o dia, mês e ano de nascimento\n");
+    printf("\tPor favor, digite em forma numérica o dia, mês e ano de nascimento\n");
     
     Data nasc = GetAge();
-    printf("Por favor, digite em forma numérica o dia, mês e ano do diagnóstico\n");
+    printf("\tPor favor, digite em forma numérica o dia, mês e ano do diagnóstico\n");
     Data diag = GetAge();
 
  
    if(CheckComorbity()){
            
-            printf("Quais?\n");
+            printf("\tQuais?\n");
             fgets(comorbidade, 100, stdin);
     }
 

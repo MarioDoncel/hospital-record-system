@@ -1,19 +1,79 @@
+Pacientes: 
+-----------------------------------
+NOME: Mario DonCPF: 35506339801
+TELEFONE: 19996129909
+ENDEREÇO:
+RUA: Candida Lacerda 
+ 470
+Bairro: Centro
+ - Araras
+/SP
+EMAIL: 88mario.doncel@gmail.comDATA DE NASCIMENTO: 02/09/1988 
+DATA DE DIAGINÓSTICO: 17/11/2021 
+COMORBIDADES:
+ -Asma, Obesidade
 
-NOME: Matheus
-CPF: 45677112390
-TELEFONE: 11966615476
-EMAIL: matheus.reis@outlook.com
-DATA DE NASCIMENTO: 12/09/1999 
-DATA DE DIAGINÓSTICO: 09/11/2021 
-ENDEREÇO:{
-  "cep": "04272-300",
-  "logradouro": "Rua Vergueiro",
-  "complemento": "de 7002 ao fim - lado par",
-  "bairro": "Vila Firmiano Pinto",
-  "localidade": "São Paulo",
-  "uf": "SP",
-  "ibge": "3550308",
-  "gia": "1004",
-  "ddd": "11",
-  "siafi": "7107"
-}******
+-----------------------------------
+NOME: Mario VelCPF: 35506339801
+TELEFONE: 19996129909
+ENDEREÇO:
+RUA: Rua Velho
+ 470
+Bairro: Bairro Vekhio
+ - Araras
+/SP
+EMAIL: fafafsafsa
+DATA DE NASCIMENTO: 02/09/1900 
+DATA DE DIAGINÓSTICO: 17/11/2021 
+COMORBIDADES:
+ -Asma
+
+-----------------------------------
+NOME: mario doncel
+
+CPF: 35506339801
+TELEFONE: 19996129909
+ENDEREÇO:
+RUA: Cnadida lacerda 
+ 470
+Bairro: centro
+ - araras
+/sp
+EMAIL: mario@gmail.com
+
+DATA DE NASCIMENTO: 02/09/1900 
+DATA DE DIAGINÓSTICO: 17/11/2021 
+COMORBIDADES:
+ -Obesidade
+
+-----------------------------------
+NOME: Mario Andres Doncel neto
+CPF: 35506339801
+TELEFONE: 19996129909
+ENDEREÇO:
+RUA: cacaca
+ 44
+Bairro: cacaca
+ - cacaca
+/caca
+EMAIL: cacaca@gmail.com
+DATA DE NASCIMENTO: 02/09/1988 
+DATA DE DIAGINÓSTICO: 17/11/2021 
+COMORBIDADES:
+ -dadadada
+
+-----------------------------------
+NOME: mariana
+IDADE: 33CPF: 35506339801
+TELEFONE: 19996929909
+ENDEREÇO:
+RUA: dadad
+ 212
+Bairro: rerere
+ - rerr
+/rerer
+EMAIL: rererer
+DATA DE NASCIMENTO: 02/11/1988 
+DATA DE DIAGINÓSTICO: 17/11/2021 
+COMORBIDADES:
+ -Nenhuma

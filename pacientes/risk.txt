@@ -1,0 +1,14 @@
+Dados grupos de risco:
+-----------------------------------
+PACIENTE GRUPO DE RISCO(maiores que 65 anos):
+ Mario VelCEP 13600210
+COMORBIDADES:
+ {Asma
+}
+-----------------------------------
+PACIENTE GRUPO DE RISCO(maiores que 65 anos):
+ mario doncel
+CEP 13600970
+COMORBIDADES:
+ {Obesidade
+}

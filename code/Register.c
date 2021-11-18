@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "checkRisk.c"
+#include "calculateAge.c"
 
 void Register(
     char cep[], 
@@ -26,7 +27,8 @@ void Register(
     fpaciente = fopen("../pacientes/dates.txt", "a");   
 
     fprintf(fpaciente, "\n-----------------------------------\n" );
-    fprintf(fpaciente, "NOME: %s", nome);
+    fprintf(fpaciente, "NOME: %s\n", nome);
+    fprintf(fpaciente, "IDADE: %d\n", calculateAge(dataNasc, dataDiag));
     fprintf(fpaciente, "CPF: %s\n", cpf);
     fprintf(fpaciente, "TELEFONE: %s\n", tel);
     fprintf(fpaciente, "ENDEREÇO:\nRUA: %s %s", Endereco.rua, Endereco.numero);
@@ -38,16 +40,16 @@ void Register(
     fclose(fpaciente);
 
 
-    if(checkRisk(dataNasc, dataDiag, comorbidade)){
+    if(checkRisk(calculateAge(dataNasc, dataDiag), comorbidade)){
         FILE *fpacienteRisco;        
 
         fpacienteRisco = fopen ("../pacientes/risk.txt", "a");       
 
-         fprintf(fpacienteRisco, "\n-----------------------------------\n" );
-        fprintf(fpacienteRisco, "PACIENTE GRUPO DE RISCO(maiores que 65 anos):\n %s", nome);
+        fprintf(fpacienteRisco, "\n-----------------------------------\n" );
+        fprintf(fpacienteRisco, "PACIENTE GRUPO DE RISCO(maiores que 65 anos com comorbidade):\n %s", nome);
         fprintf(fpacienteRisco, "CEP %s\n", cep);
-        fprintf(fpacienteRisco, "COMORBIDADES:\n {%s}", comorbidade);
-
+        fprintf(fpacienteRisco, "IDADE:\n %d", calculateAge(dataNasc, dataDiag));
+    
         fclose(fpacienteRisco);
     };
     
